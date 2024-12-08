@@ -7,13 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tripplanner.R;
 
-public class LoginLogic extends AppCompatActivity {
+public class LoginLogicActivity extends AppCompatActivity {
     String id, pw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login);
 
         Intent intent = getIntent();
         if(intent != null){

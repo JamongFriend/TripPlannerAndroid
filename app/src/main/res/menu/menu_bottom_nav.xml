@@ -1,22 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_home"
         android:title="홈" />
     <item
         android:id="@+id/searchFragment"
-        android:icon="@drawable/ic_search"
         android:title="찾기" />
     <item
         android:id="@+id/bookmarkFragment"
-        android:icon="@drawable/ic_bookmark"
+        android:icon=""
         android:title="북마크" />
     <item
-        android:id="@+id/MyPlanFragment"
-        android:icon="@drawable/ic_trip"
+        android:id="@+id/myPlanFragment"
         android:title="내플랜" />
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/ic_profile"
         android:title="내정보" />
 </menu>

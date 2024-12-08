@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tripplanner.R;
 
-public class RegisterAccount extends AppCompatActivity {
+public class RegisterAccountActivity extends AppCompatActivity {
     TextView back;
     EditText name,id,pw,pw2,email,birthyear,birthdate,birthday;
     Button pwcheck, submit;
@@ -41,14 +41,14 @@ public class RegisterAccount extends AppCompatActivity {
             if(pw.getText().toString().equals(pw2.getText().toString())){
                 pwcheck.setText("일치");
             }else{
-                Toast.makeText(RegisterAccount.this, "비밀번호가 다릅니다.", Toast.LENGTH_LONG).show();
+                Toast.makeText(RegisterAccountActivity.this, "비밀번호가 다릅니다.", Toast.LENGTH_LONG).show();
             }
         });
 
         //회원가입 완료 버튼
         submit = findViewById(R.id.signupbutton);
         submit.setOnClickListener(v -> {
-            Intent intent = new Intent(this, Login.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         });
         

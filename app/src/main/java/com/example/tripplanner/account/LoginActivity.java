@@ -12,10 +12,10 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.tripplanner.Main;
+import com.example.tripplanner.MainActivity;
 import com.example.tripplanner.R;
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private EditText emailEditText, passwordEditText;
     private Button loginButton;
     private TextView forgotText, registerText;
@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
                 String email = emailEditText.getText().toString();
                 String pw = passwordEditText.getText().toString();
 
-                Intent intent = new Intent(Login.this, Main.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 intent.putExtra("ID", email);
                 intent.putExtra("PW", pw);
                 launcher.launch(intent);
@@ -49,20 +49,18 @@ public class Login extends AppCompatActivity {
 
         launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                 result -> {
-            if(result.getResultCode() == Login.RESULT_OK){
+            if(result.getResultCode() == LoginActivity.RESULT_OK){
                 Intent data = result.getData();
             }
                 } );
-
         //아이디, 비번 찾기 페이지로 이동
         forgotText.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ForgotAccountFind.class);
+            Intent intent = new Intent(this, ForgotAccountFindActivity.class);
             startActivity(intent);
         });
-
         //회원가입 페이지로 이동
         registerText.setOnClickListener(v -> {
-            Intent intent = new Intent(this, RegisterAccount.class);
+            Intent intent = new Intent(this, RegisterAccountActivity.class);
             startActivity(intent);
         });
     }

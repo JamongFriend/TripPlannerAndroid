@@ -13,7 +13,7 @@
         android:theme="@style/Theme.TripPlanner"
         tools:targetApi="31">
         <activity
-            android:name=".SplashActivity"
+            android:name="com.example.tripplanner.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".account.LoginActivity" android:label="Activity2"></activity>
-        <activity android:name=".MainActivity" android:label="Activity2"></activity>
+        <activity android:name=".MainActivity" android:label="MainActivity"></activity>
+        <activity android:name=".account.LoginActivity" android:label="LoginActivity"></activity>
+        <activity android:name=".account.RegisterAccountActivity" android:label="MainActivity"></activity>
+        <activity android:name=".account.ForgotAccountFindActivity" android:label="MainActivity"></activity>
     </application>
 
 </manifest>

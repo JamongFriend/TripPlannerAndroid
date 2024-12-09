@@ -7,9 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tripplanner.MainActivity;
@@ -19,11 +18,12 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailEditText, passwordEditText;
     private Button loginButton;
     private TextView forgotText, registerText;
-    ActivityResultLauncher<Intent> launcher;
+
+    String id, pw;
 
     @SuppressLint("MissingInflatedId")
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
@@ -39,20 +39,10 @@ public class LoginActivity extends AppCompatActivity {
                 String email = emailEditText.getText().toString();
                 String pw = passwordEditText.getText().toString();
 
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                intent.putExtra("ID", email);
-                intent.putExtra("PW", pw);
-                launcher.launch(intent);
+                check(email, pw);
             }
-
         });
 
-        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-            if(result.getResultCode() == LoginActivity.RESULT_OK){
-                Intent data = result.getData();
-            }
-                } );
         //아이디, 비번 찾기 페이지로 이동
         forgotText.setOnClickListener(v -> {
             Intent intent = new Intent(this, ForgotAccountFindActivity.class);
@@ -63,5 +53,18 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(this, RegisterAccountActivity.class);
             startActivity(intent);
         });
+    }
+    public void check(String id, String pw){
+        if(isUserValid(id, pw)){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호가 틀렸습니다", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private boolean isUserValid(String id, String pw){
+        return id.equals("ghrb") && pw.equals("1234");
     }
 }

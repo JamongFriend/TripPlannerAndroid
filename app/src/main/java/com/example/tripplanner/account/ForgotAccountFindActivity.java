@@ -1,4 +1,6 @@
 package com.example.tripplanner.account;
 
-public class ForgotAccountFindActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ForgotAccountFindActivity extends AppCompatActivity {
 }

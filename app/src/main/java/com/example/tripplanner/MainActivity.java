@@ -1,21 +1,21 @@
 package com.example.tripplanner;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
-import com.example.tripplanner.Fragment.BookmarkFragment;
-import com.example.tripplanner.Fragment.HomeFragment;
-import com.example.tripplanner.Fragment.MyPlanFragment;
-import com.example.tripplanner.Fragment.ProfileFragment;
-import com.example.tripplanner.Fragment.SearchFragment;
+import com.example.tripplanner.fragment.BookmarkFragment;
+import com.example.tripplanner.fragment.HomeFragment;
+import com.example.tripplanner.fragment.MyPlanFragment;
+import com.example.tripplanner.fragment.ProfileFragment;
+import com.example.tripplanner.fragment.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    private BottomNavigationView navi;
+    BottomNavigationView navi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,28 +26,20 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new HomeFragment()).commit();
 
         navi.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selectedFragment = null;
-                switch (item.getItemId()){
-                    case R.id.homeFragment:
-                        selectedFragment = new HomeFragment();
-                        break;
-                    case R.id.searchFragment:
-                        getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new SearchFragment()).commit();
-                        break;
-                    case R.id.bookmarkFragment:
-                        getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new BookmarkFragment()).commit();
-                        break;
-                    case R.id.myPlanFragment:
-                        getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new MyPlanFragment()).commit();
-                        break;
-                    case R.id.profileFragment:
-                        getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new ProfileFragment()).commit();
-                        break;
-                }
-                if (selectedFragment != null) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, selectedFragment).commit();
+                int itemId = item.getItemId();
+                if (itemId == R.id.homeFragment) {
+                    getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new HomeFragment()).commit();
+                } else if (itemId == R.id.searchFragment) {
+                    getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new SearchFragment()).commit();
+                } else if (itemId == R.id.bookmarkFragment) {
+                    getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new BookmarkFragment()).commit();
+                } else if (itemId == R.id.myPlanFragment) {
+                    getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new MyPlanFragment()).commit();
+                } else if (itemId == R.id.profileFragment) {
+                    getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new ProfileFragment()).commit();
                 }
                 return true;
             }

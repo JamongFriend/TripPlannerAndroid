@@ -1,4 +1,4 @@
-package com.example.tripplanner.Fragment;
+package com.example.tripplanner.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

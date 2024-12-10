@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         navi = findViewById(R.id.bottomNavigationView);
-        getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, new HomeFragment()).commit();
 
         navi.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")
@@ -31,15 +31,15 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int itemId = item.getItemId();
                 if (itemId == R.id.homeFragment) {
-                    getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new HomeFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, new HomeFragment()).commit();
                 } else if (itemId == R.id.searchFragment) {
-                    getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new SearchFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, new SearchFragment()).commit();
                 } else if (itemId == R.id.bookmarkFragment) {
-                    getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new BookmarkFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, new BookmarkFragment()).commit();
                 } else if (itemId == R.id.myPlanFragment) {
-                    getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new MyPlanFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, new MyPlanFragment()).commit();
                 } else if (itemId == R.id.profileFragment) {
-                    getSupportFragmentManager().beginTransaction().add(R.id.mainFrame, new ProfileFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, new ProfileFragment()).commit();
                 }
                 return true;
             }

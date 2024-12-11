@@ -33,6 +33,9 @@
         <activity
             android:name=".account.ForgotAccountFindActivity"
             android:label="MainActivity" />
+        <activity
+            android:name=".plan.CreatePlan"
+            android:label="CreatePlan"/>
     </application>
 
 </manifest>

@@ -15,6 +15,7 @@ import com.example.tripplanner.fragment.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+    //로그인 성공 후 메인 화면
     BottomNavigationView navi;
 
     @Override
@@ -22,9 +23,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //네비화면 메인
         navi = findViewById(R.id.bottomNavigationView);
         getSupportFragmentManager().beginTransaction().replace(R.id.mainFrame, new HomeFragment()).commit();
 
+        //네비게이션 바 클릭시 화면 전환
         navi.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")
             @Override

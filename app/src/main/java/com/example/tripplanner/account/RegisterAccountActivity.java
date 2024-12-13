@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.tripplanner.R;
 
 public class RegisterAccountActivity extends AppCompatActivity {
+    // 회원가입 기능
     TextView back;
     EditText name,id,pw,pw2,email,birthYear,birthDate,birthDay;
     Button pwcheck, submit;

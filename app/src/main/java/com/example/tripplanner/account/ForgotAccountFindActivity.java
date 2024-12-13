@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.tripplanner.R;
 
 public class ForgotAccountFindActivity extends AppCompatActivity {
+    //계정 찾기 기능
     private EditText userName, userBirthYear, userBirthMonth, userBirthDate, userID;
     private Button checkID, checkPW;
     private TextView back;
@@ -31,9 +32,11 @@ public class ForgotAccountFindActivity extends AppCompatActivity {
         checkID = findViewById(R.id.checkID);
         checkPW = findViewById(R.id.checkPW);
 
+        //뒤로가기 버튼
         back = findViewById(R.id.back);
         back.setOnClickListener(v -> onBackPressed());
 
+        //아이디 확인 버튼
         checkID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +52,7 @@ public class ForgotAccountFindActivity extends AppCompatActivity {
             }
         });
 
+        //비밀번호 확인 버튼
         checkPW.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +64,7 @@ public class ForgotAccountFindActivity extends AppCompatActivity {
 
     }
 
+    // 입력받은 정보와 기존 정보가 일치하는 지 확인
     private void checkInfo(String inputInfo){
 
     }

@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.tripplanner.account.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
+    //스플레시 화면
     private static final int SPLASH_TIMEOUT = 2000;
 
     @Override

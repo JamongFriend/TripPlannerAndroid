@@ -15,6 +15,7 @@ import com.example.tripplanner.MainActivity;
 import com.example.tripplanner.R;
 
 public class LoginActivity extends AppCompatActivity {
+    //로그인 기능
     private EditText idEditText, passwordEditText;
     private Button loginButton;
     private TextView forgotText, registerText;
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         forgotText = findViewById(R.id.forgotText);
         registerText = findViewById(R.id.registerText);
 
+        //로그인 버튼
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +56,8 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
+
+    // 입역한 아이디 비번이 맞는지 확인
     public void check(String id, String pw){
         if(isUserValid(id, pw)){
             Intent intent = new Intent(this, MainActivity.class);

@@ -13,13 +13,13 @@ import com.example.tripplanner.R;
 
 public class RegisterAccountActivity extends AppCompatActivity {
     TextView back;
-    EditText name,id,pw,pw2,email,birthyear,birthdate,birthday;
+    EditText name,id,pw,pw2,email,birthYear,birthDate,birthDay;
     Button pwcheck, submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register);
+        setContentView(R.layout.activity_register);
 
         //뒤로 가기 버튼
         back = findViewById(R.id.back);
@@ -31,9 +31,9 @@ public class RegisterAccountActivity extends AppCompatActivity {
         pw=findViewById(R.id.signPW);
         pw2=findViewById(R.id.signPW2);
         email=findViewById(R.id.signmail);
-        birthyear=findViewById(R.id.signBirth);
-        birthdate=findViewById(R.id.signBirth2);
-        birthday=findViewById(R.id.signBirth3);
+        birthYear=findViewById(R.id.signBirth);
+        birthDate=findViewById(R.id.signBirth2);
+        birthDay=findViewById(R.id.signBirth3);
 
         //비밀번호 확인 버튼
         pwcheck = findViewById(R.id.pwcheckbutton);

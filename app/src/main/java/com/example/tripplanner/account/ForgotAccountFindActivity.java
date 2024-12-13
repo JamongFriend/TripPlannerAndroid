@@ -1,5 +1,6 @@
 package com.example.tripplanner.account;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,17 +12,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.tripplanner.R;
 
 public class ForgotAccountFindActivity extends AppCompatActivity {
-    private EditText userName, userBirth, userID;
+    private EditText userName, userBirthYear, userBirthMonth, userBirthDate, userID;
     private Button checkID, checkPW;
     private TextView back;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.forgotaccountfind);
+        setContentView(R.layout.activity_forgotaccountfind);
 
         userName = findViewById(R.id.userName);
-        userBirth = findViewById(R.id.userBirth);
+        userBirthYear = findViewById(R.id.userBirthYear);
+        userBirthMonth = findViewById(R.id.userBirthMonth);
+        userBirthDate = findViewById(R.id.userBirthDate);
         userID = findViewById(R.id.userID);
 
         checkID = findViewById(R.id.checkID);
@@ -34,10 +38,14 @@ public class ForgotAccountFindActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = userName.getText().toString();
-                String birth = userBirth.getText().toString();
+                String year = userBirthYear.getText().toString();
+                String month = userBirthMonth.getText().toString();
+                String date = userBirthDate.getText().toString();
 
                 checkInfo(name);
-                checkInfo(birth);
+                checkInfo(year);
+                checkInfo(month);
+                checkInfo(date);
             }
         });
 

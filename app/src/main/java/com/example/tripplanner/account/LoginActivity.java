@@ -3,7 +3,6 @@ package com.example.tripplanner.account;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,12 +12,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tripplanner.MainActivity;
 import com.example.tripplanner.R;
+import com.example.tripplanner.Retrofit.APIClient;
+import com.example.tripplanner.Retrofit.AuthService;
+import com.example.tripplanner.Retrofit.LoginRequest;
+import com.example.tripplanner.Retrofit.LoginResponse;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     //로그인 기능
     private EditText idEditText, passwordEditText;
     private Button loginButton;
     private TextView forgotText, registerText;
+    private AuthService authService;
 
     String id, pw;
 
@@ -34,15 +42,32 @@ public class LoginActivity extends AppCompatActivity {
         forgotText = findViewById(R.id.forgotText);
         registerText = findViewById(R.id.registerText);
 
+        authService = APIClient.getClient().create(AuthService.class);
         //로그인 버튼
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = idEditText.getText().toString();
-                String pw = passwordEditText.getText().toString();
+        loginButton.setOnClickListener(v -> {
+            String id = "";
+            String password = "";
 
-                check(email, pw);
-            }
+            LoginRequest loginRequest = new LoginRequest(id, password);
+            authService.login(loginRequest).enqueue(new Callback<LoginResponse>() {
+                @Override
+                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                    if(response.isSuccessful()){
+                        // 로그인 성공, 토큰 등을 처리
+                        LoginResponse loginResponse = response.body();
+                        String token = loginResponse.getToken();
+                    }else {
+                        // 로그인 실패, 오류 메시지 표시
+                        Toast.makeText(LoginActivity.this, "로그인 실패", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<LoginResponse> call, Throwable t) {
+                    // 네트워크 오류 등 처리
+                    Toast.makeText(LoginActivity.this, "네트워크 오류", Toast.LENGTH_SHORT).show();
+                }
+            });
         });
 
         //아이디, 비번 찾기 페이지로 이동

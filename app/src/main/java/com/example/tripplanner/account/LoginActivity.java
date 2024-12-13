@@ -15,7 +15,7 @@ import com.example.tripplanner.MainActivity;
 import com.example.tripplanner.R;
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText emailEditText, passwordEditText;
+    private EditText idEditText, passwordEditText;
     private Button loginButton;
     private TextView forgotText, registerText;
 
@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        emailEditText = findViewById(R.id.emailEditText);
+        idEditText = findViewById(R.id.idEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
         loginButton = findViewById(R.id.loginButton);
         forgotText = findViewById(R.id.forgotText);
@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = emailEditText.getText().toString();
+                String email = idEditText.getText().toString();
                 String pw = passwordEditText.getText().toString();
 
                 check(email, pw);

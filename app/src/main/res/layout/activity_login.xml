@@ -40,12 +40,19 @@
         android:layout_margin="16dp"/>
 
     <TextView
+        android:id="@+id/kakaoLoginText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="카카오 로그인"
+        android:textSize="24dp"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
         android:id="@+id/forgotText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="비밀번호를 잊으셨나요?"
         android:textSize="16dp"
-        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"/>
 
     <TextView
@@ -54,7 +61,6 @@
         android:layout_height="wrap_content"
         android:text="회원가입"
         android:textSize="16dp"
-        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"/>
 
 </LinearLayout>
